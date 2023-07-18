@@ -1,4 +1,4 @@
-# here we are going to use sandbox to send sms
+# Here we are going to use sandbox to send sms
 # we are not using any senderID
  
 import requests
