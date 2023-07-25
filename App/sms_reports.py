@@ -66,8 +66,27 @@ def handle_incomimg_messages():
     date = request.values.get("date")
     data = {"message": incoming_message, "sender": sender, "receiver": receiver, "date": date}
     print({"Incoming messages": data})
-    
+
     return {"message": "message received successfully"}
+
+
+''' here we will handle the derivery reports from the message we sent'''
+
+
+@app.route('/delivery-reports', methods=['POST'])
+def delivery_reports():
+   id  = request.form["id"]
+   status = request.values.get("status", None)
+   phone_number = request.form["phoneNumber"]
+   network_code = request.form["networkCode"]
+   failure_reason = request.values.get("failureReason")
+
+   data = {"id": id, "status": status, "phone_number": phone_number, "network_code": network_code, "failure_reason": failure_reason}
+   print({"DELIVERY REPORTS": data})
+
+   return {"message": "delivery reports"}
+
+
     
 
 
