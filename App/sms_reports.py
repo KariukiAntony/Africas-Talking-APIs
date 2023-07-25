@@ -56,7 +56,7 @@ def handle_send_function():
     send_sms(message=message, phone_number=phone_number, username=username, short_code=short_code)
 
 
-''' here we will handle incoming messages from the phonenumber'''
+# here we will handle incoming messages from the phonenumber 
 
 @app.post("/handle_incoming_messages")
 def handle_incomimg_messages():
@@ -86,6 +86,17 @@ def delivery_reports():
 
    return {"message": "delivery reports"}
 
+
+''' here we will handle the derivery reports from the message we sent '''
+
+@app.route('/handle_bulk_sms_opt_out', methods=['POST'])
+def handle_bulk_sms_opt_out():
+    sender_id = request.values.get("senderId")
+    phone_number = request.values.get("phoneNumber")
+    data = {"sender_id": sender_id, "phonenumber": phone_number}
+    print({"BULK_SMS_OPT-OUT": data})
+    
+    return {"message": "user opts out"}
 
     
 
