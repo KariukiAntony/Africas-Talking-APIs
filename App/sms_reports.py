@@ -56,6 +56,21 @@ def handle_send_function():
     send_sms(message=message, phone_number=phone_number, username=username, short_code=short_code)
 
 
+''' here we will handle incoming messages from the phonenumber'''
+
+@app.post("/handle_incoming_messages")
+def handle_incomimg_messages():
+    incoming_message = request.values.get("text")
+    sender = request.values.get("from")
+    receiver = request.values.get("to")
+    date = request.values.get("date")
+    data = {"message": incoming_message, "sender": sender, "receiver": receiver, "date": date}
+    print({"Incoming messages": data})
+    
+    return {"message": "message received successfully"}
+    
+
+
 if __name__ == "__main__":
     handle_send_function()
     app.run()
