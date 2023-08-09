@@ -57,3 +57,7 @@ def handle_send_function():
 
 if __name__ == "__main__":
     handle_send_function()
+
+""" now you know how to send a sms using aplhanumeric"""
+
+""" congratulations !!"""
