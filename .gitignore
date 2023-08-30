@@ -2,3 +2,4 @@ venv
 .env
 .flaskenv
 __pycache__
+test.py
