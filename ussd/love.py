@@ -25,7 +25,7 @@ def get_relationship_status(male: str, female: str):
         res = requests.get(url=url, headers=headers, params=params)
         if res .status_code == 200:
             response = res.json()
-            return {"Boyfriend": male, "Girlfriend": female, "Love Percentage": response["percentage"]+"%", "result": response["result'"]}
+            return f"Boyfriend: {male}\n Girlfriend: {female}\n Love Percentage: {response['percentage']}%\n result: {response['result']}"
         
         else:
             print(f"Opps! antony, an error occured wiht status code: {res.status_code}")

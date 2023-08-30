@@ -1,4 +1,5 @@
 from flask import Blueprint, request
+from .love import get_relationship_status
 
 ussd = Blueprint("ussd", __name__)
 
@@ -28,7 +29,8 @@ def handle_ussd_app():
     elif len(user_input) == 3:
         male_name = user_input[1]
         female_name = user_input[2]
-        response = "END wait as we process your request"
+        result = get_relationship_status(male=male_name, female=female_name)
+        response = f"END {result}"
     
     elif text == "2":
         response = " END This service is currently unavailabe"
