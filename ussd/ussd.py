@@ -16,7 +16,7 @@ def handle_ussd_app():
     user_input += text
 
     if text == "":
-        response += "CON Choose what you want to check\n"
+        response += "CON Choose what to check\n"
         response += "1. Relationship Status\n"
         response += "2. More Info\n"
 
